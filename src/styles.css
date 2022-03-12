@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+
+html,
+body {
+  background: #3e4144;
+  margin: 20px;
+  color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 16px 0;
+}
+
+dd {
+  margin-left: 16px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: rgb(133, 58, 255);
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 8px 24px;
+}
+button:hover {
+  background-color: rgb(109, 40, 219);
+}
+button:focus {
+  outline: none;
+}
+button.danger {
+  background-color: rgb(255, 53, 131);
+}
+button.danger:hover {
+  background-color: rgb(223, 32, 105);
+}
+button.success {
+  background-color: rgb(53, 255, 130);
+}
+button.success:hover {
+  background-color: rgb(36, 224, 108);
+}
+
+.p-1 {
+  padding: 1px;
+}
+.mr-8 {
+  margin-right: 8px;
+}
