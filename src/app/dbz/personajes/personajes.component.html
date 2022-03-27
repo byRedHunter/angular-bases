@@ -1,0 +1,13 @@
+<h3>Personajes</h3>
+<hr />
+<ul>
+  <li *ngIf="personajes.length === 0; else listPersonajes">
+    No hay personajes
+  </li>
+
+  <ng-template #listPersonajes>
+    <li *ngFor="let per of personajes">
+      {{ per.nombre }} - {{ per.poder | number }}
+    </li>
+  </ng-template>
+</ul>
