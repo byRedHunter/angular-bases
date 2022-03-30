@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Personaje } from '../interfaces/dbz.interface';
 
@@ -12,12 +12,12 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  @Input() personajes: Personaje[] = [];
-
-  @Input() nuevo: Personaje = {
+  nuevo: Personaje = {
     nombre: '',
     poder: 0,
   };
+
+  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
 
   agregar() {
     if (this.nuevo.nombre.trim() === '') {
@@ -25,19 +25,12 @@ export class AgregarComponent implements OnInit {
         timeOut: 3000,
       });
     } else {
-      this.savePersonaje();
-    }
-  }
+      this.onNuevoPersonaje.emit(this.nuevo);
 
-  savePersonaje() {
-    this.personajes.push(this.nuevo);
-    localStorage.setItem('personajes', JSON.stringify(this.personajes));
-    this.toastr.success('Personaje guardado', 'Genial!!', {
-      timeOut: 3000,
-    });
-    this.nuevo = {
-      nombre: '',
-      poder: 0,
-    };
+      this.nuevo = {
+        nombre: '',
+        poder: 0,
+      };
+    }
   }
 }

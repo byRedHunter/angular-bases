@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col">
-    <app-agregar [personajes]="personajes" [nuevo]="nuevo"></app-agregar>
+    <app-agregar (onNuevoPersonaje)="savePersonaje($event)"></app-agregar>
   </div>
 
   <div class="col">

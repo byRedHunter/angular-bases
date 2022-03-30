@@ -8,18 +8,24 @@ import { Personaje } from '../interfaces/dbz.interface';
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent {
-  constructor() {
+  constructor(private toastr: ToastrService) {
     this.getPersonajes();
   }
 
   personajes: Personaje[] = [];
-  nuevo: Personaje = {
-    nombre: '',
-    poder: 0,
-  };
 
   getPersonajes(): void {
     const storage = localStorage.getItem('personajes');
     storage ? (this.personajes = JSON.parse(storage)) : (this.personajes = []);
+  }
+
+  savePersonaje(data: Personaje) {
+    this.personajes.push(data);
+
+    localStorage.setItem('personajes', JSON.stringify(this.personajes));
+
+    this.toastr.success('Personaje guardado', 'Genial!!', {
+      timeOut: 3000,
+    });
   }
 }
