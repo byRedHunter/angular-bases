@@ -6,8 +6,9 @@
   </li>
 
   <ng-template #listPersonajes>
-    <li *ngFor="let per of personajes">
+    <li *ngFor="let per of personajes; index as i">
       {{ per.nombre }} - {{ per.poder | number }}
+      <button class="danger delete" (click)="delete(i)">X</button>
     </li>
   </ng-template>
 </ul>
